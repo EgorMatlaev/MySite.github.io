@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: darkblue;
+}
+
+.car {
+  width: 200px;
+  height: 100px;
+  background-color: #FF5733; 
+  position: absolute;
+  bottom: 50px; /* Расположение от нижней грани */
+  border-radius: 10px; /* Закругленные углы */
+  animation: drive 9s infinite, jump 1s ease infinite, sway 2s ease-in-out infinite; 
+}
+
+.wheel {
+  width: 30px;
+  height: 30px;
+  background-color: #333; /* Цвет колес */
+  border-radius: 70%; /* Круглые колеса */
+  position: absolute;
+  bottom: -15px; /* Расположение колес */
+  animation: rotate 1s linear infinite; /* Анимация вращения колес */
+}
+
+.wheel.left {
+  left: 20px; /* Положение левого колеса */
+}
+
+.wheel.right {
+  right: 20px; /* Положение правого колеса */
+}
+
+@keyframes drive {
+  from {
+      left: -200px; 
+  }
+  to {
+      left: calc(100vw - 250px);
+  }
+}
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg); 
+  }
+  to {
+      transform: rotate(360deg); 
+  }
+}
+
+@keyframes jump {
+  0%, 100% {
+      transform: translateY(0); /* Начальное и конечное положение */
+  }
+  50% {
+      transform: translateY(20px); /* Подъем на 20 пикселей */
+  }
+}
